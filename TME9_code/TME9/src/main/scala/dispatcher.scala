@@ -40,11 +40,17 @@ class Worker extends Actor {
 		var subList = cantate.chords.slice(start, start+nrOfElements -1)
 		println("GIIIIIIIIIIIIII")
 		println(cantate.chords(0).notes.size)
-		result = subList.map(x => DatedNote(x.notes(3).pitch,x.notes(3).vol,x.notes(3).dur, x.date)):: result 
+		val sz = cantate.chords(0).notes.size
+		if(sz>=4){result = subList.map(x => DatedNote(x.notes(3).pitch,x.notes(3).vol,x.notes(3).dur, x.date)):: result }
+		if(sz>=3){result = subList.map(x => DatedNote(x.notes(2).pitch,x.notes(2).vol,x.notes(2).dur, x.date)):: result }
+		if(sz>=2){result = subList.map(x => DatedNote(x.notes(1).pitch,x.notes(1).vol,x.notes(1).dur, x.date)):: result }
+		if(sz>=1){result = subList.map(x => DatedNote(x.notes(0).pitch,x.notes(0).vol,x.notes(0).dur, x.date)):: result }
+		/*
 		result = subList.map(x => DatedNote(x.notes(2).pitch,x.notes(2).vol,x.notes(2).dur, x.date)):: result
 		result = subList.map(x => DatedNote(x.notes(1).pitch,x.notes(1).vol,x.notes(1).dur, x.date)):: result
 		result = subList.map(x => DatedNote(x.notes(0).pitch,x.notes(0).vol,x.notes(0).dur, x.date)):: result
-result	
+		*/		
+		result	
 }
 	
  }
