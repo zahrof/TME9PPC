@@ -1,0 +1,6 @@
+set fork in run := true
+compile
+run
+set fork in run := true 
+compile 
+run 
